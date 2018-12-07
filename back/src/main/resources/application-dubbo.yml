@@ -1,0 +1,49 @@
+dubbo:
+  application:
+    name: haixiangtest
+    environment: develop
+  protocol:
+    port: 20880
+    threadpool: fixed
+    threads: 200
+  registry:
+    address: 192.168.231.129:2181
+    file: dubbo-registry-cache/market-core{replicas.id:}.cache
+  provider:
+    timeout: 30000
+    connections: 5
+    group: prodGroup
+    version: 1.0.0
+    retries: 0
+  consumer:
+    check: false
+    group: prodGroup
+
+---
+
+spring:
+  profiles: test
+
+dubbo:
+  registry:
+    address: 192.168.231.129:2181
+
+---
+
+spring:
+  profiles: prod
+
+dubbo:
+  application:
+    environment: product
+  registry:
+    address: 192.168.231.129:2181
+
+---
+
+spring:
+  profiles: local
+
+dubbo:
+  registry:
+    address: 127.0.0.1:2181
