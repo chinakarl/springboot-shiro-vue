@@ -8,7 +8,7 @@ dubbo:
     threads: 200
   registry:
     address: 192.168.231.129:2181
-    file: dubbo-registry-cache/market-core{replicas.id:}.cache
+    file: dubbo-registry-cache/general-management{replicas.id:}.cache
   provider:
     timeout: 30000
     connections: 5

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ImportResource;
  * @date: 2017/10/24 11:55
  */
 @SpringBootApplication
-@MapperScan("com.heeexy.example.dao")
+@MapperScan("com..general.management.dao")
 @ImportResource({"classpath:/dubbo/*.xml"})
 public class MyApplication extends SpringBootServletInitializer {
 
