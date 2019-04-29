@@ -7,7 +7,7 @@ dubbo:
     threadpool: fixed
     threads: 200
   registry:
-    address: 192.168.231.129:2181
+    address: 192.168.192.128:2181
     file: dubbo-registry-cache/general-management{replicas.id:}.cache
   provider:
     timeout: 30000
@@ -26,7 +26,7 @@ spring:
 
 dubbo:
   registry:
-    address: 192.168.231.129:2181
+    address: 192.168.192.128:2181
 
 ---
 

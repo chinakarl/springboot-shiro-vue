@@ -9,9 +9,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ImportResource;
 
 /**
- * @author: hxy
+ * @author: zhx
  * @description: SpringBoot启动类
- * @date: 2017/10/24 11:55
+ * @date: 2018/10/24 11:55
  */
 @SpringBootApplication
 @MapperScan("com..general.management.dao")

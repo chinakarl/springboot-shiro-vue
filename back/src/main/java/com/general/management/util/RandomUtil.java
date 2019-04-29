@@ -3,7 +3,7 @@ package com.general.management.util;
 import java.util.UUID;
 
 /**
- * @author: hxy
+ * @author: zhx
  * @description: 生成随机码的工具类
  * @date: 2017/10/26 14:20
  */

@@ -1,7 +1,7 @@
 package com.general.management.util;
 
 /**
- * @author: hxy
+ * @author: zhx
  * @date: 2017/10/24 10:16
  */
 public class StringTools {
