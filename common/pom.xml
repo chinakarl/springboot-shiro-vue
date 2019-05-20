@@ -12,6 +12,7 @@
     <module>com.mq</module>
     <module>common-mq</module>
       <module>common-mongodb</module>
+    <module>common-redis</module>
   </modules>
 
   <name>common</name>
