@@ -1,6 +1,6 @@
-package common;
+package common.redis;
 
-import common.clientservice.RedisService;
+import common.clientservice.RedisString;
 import common.conf.RedisConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +17,8 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(classes = {RedisConfig.class})
 public class AppTest 
 {
-
     @Autowired
-    RedisService redisService;
+    RedisString redisService;
 //    @Autowired
 //    RedisTemplate<String,String> redisTemplate;
     /**
@@ -36,7 +35,8 @@ public class AppTest
     {
         //System.out.println(redisService.set("test","1",-1));
         redisService.incr("incrtest",1);
-        System.out.println(redisService.get("incrtest"));
+        Long incr = redisService.getIncrementByKey("incrtest");
+        System.out.println(incr);
 //        Map<String, Object> properties = new HashMap<>();
 //        properties.put("123", "hello");
 //        properties.put("abc", 456);

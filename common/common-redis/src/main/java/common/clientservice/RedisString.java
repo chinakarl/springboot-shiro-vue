@@ -1,36 +1,28 @@
 package common.clientservice;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: zhx
- * @description: redis工具类
- * @date: 2019/5/17
+ * @author: zhaihx
+ * @description:
+ * @date:2019/5/22
  */
-@Service("redisService")
-public class RedisService{
+@Service
+public class RedisString extends RedisBase {
+
+    final private Long LOCK_EXPIRE = 15L;
+
+    final private String LOCK_PREFIX = "REDIS_LOCK";
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    /**
-     * 判断key是否存在
-     * @param key 键
-     * @return true 存在 false不存在
-     */
-    public boolean hasKey(String key){
-        try {
-            return redisTemplate.hasKey(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
     /**
      * 获取缓存
      * @param key 键
@@ -50,7 +42,6 @@ public class RedisService{
             redisTemplate.opsForValue().set(key, value);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }
@@ -73,7 +64,6 @@ public class RedisService{
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }
@@ -100,5 +90,18 @@ public class RedisService{
             throw new RuntimeException("递增因子必须小于0");
         }
         return redisTemplate.opsForValue().increment(key, delta);
+    }
+
+    /**
+     * 获取increment值
+     * @param key 键
+     * @return
+     */
+    public long getIncrementByKey(String key) {
+        if(StringUtils.isEmpty(key))
+        {
+            return 0L;
+        }
+        return NumberUtils.toLong(redisTemplate.boundValueOps(key).get(0,-1));
     }
 }

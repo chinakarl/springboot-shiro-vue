@@ -10,7 +10,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 
 /**
  * @author: zhaihx
@@ -55,4 +54,5 @@ public class RedisConfig extends JCacheConfigurerSupport {
         redis.afterPropertiesSet();
         return redis;
     }
+
 }
