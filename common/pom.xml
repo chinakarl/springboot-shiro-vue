@@ -13,6 +13,7 @@
     <module>common-mq</module>
       <module>common-mongodb</module>
     <module>common-redis</module>
+      <module>common-job</module>
   </modules>
 
   <name>common</name>
