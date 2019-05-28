@@ -6,6 +6,6 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service ref="articleService" interface="com.general.management.service.ArticleService"/>
+    <dubbo:service ref="articleService" interface="com.hover.management.service.ArticleService"/>
 
 </beans>

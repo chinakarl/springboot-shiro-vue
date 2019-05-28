@@ -1,6 +1,4 @@
 package com.haixiang.mongodb.Util;
-
-import com.ai.paas.utils.StringUtil;
 import com.mongodb.DBObject;
 
 import java.util.*;
@@ -19,7 +17,7 @@ public class MongoUtils {
                 Map<String, Object> map = new HashMap();
                 Iterator it= dbObject.keySet().iterator();
                 while(it.hasNext()) {
-                    String key = StringUtil.toString(it.next());
+                    String key = it.next()+"";
                     map.put(key, dbObject.get(key));
                 }
                 list.add(map);

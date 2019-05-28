@@ -1,6 +1,6 @@
 package com.haixiang.mongodb.template;
 
-import com.ai.market.common.mongo.page.MongoPageResult;
+import com.haixiang.mongodb.page.MongoPageResult;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 
@@ -27,7 +27,6 @@ public interface IMongodbTemplate {
     * @Author: zhaihx
     * @Description: 获取排序后的第一条数据
     * @Date: 11:10 2018/8/16
-     * @param dbName
      * @param collection
      * @param query
      * @param fields

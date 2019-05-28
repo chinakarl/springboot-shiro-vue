@@ -1,9 +1,9 @@
 package com.haixiang.mongodb.template.impl;
 
-import com.ai.market.common.mongo.Util.MongoUtils;
-import com.ai.market.common.mongo.conf.MongoDBConfig;
-import com.ai.market.common.mongo.page.MongoPageResult;
-import com.ai.market.common.mongo.template.IMongodbTemplate;
+import com.haixiang.mongodb.Util.MongoUtils;
+import com.haixiang.mongodb.conf.MongoDBConfig;
+import com.haixiang.mongodb.page.MongoPageResult;
+import com.haixiang.mongodb.template.IMongodbTemplate;
 import com.mongodb.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,9 +12,9 @@ quartz:
    active: dev
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.20.16.74:3306/market?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: market
-    password: market
+    url: jdbc:mysql://localhost:3306/example?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: root
 
 ---
 
@@ -32,6 +32,6 @@ quartz:
    active: test
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.20.16.74:3306/market?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: market
-    password: market
+    url: jdbc:mysql://localhost:3306/example?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
