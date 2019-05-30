@@ -39,7 +39,7 @@ public class ExampleJob extends AbstractJob {
 
         threadPool.execute(() ->{
             try {
-                doExampleRegularly();
+                doExample();
             } catch (Exception e) {
 
                 logger.error("样例异常,", e);
@@ -49,10 +49,10 @@ public class ExampleJob extends AbstractJob {
 
     /**
     * @Author: zhaihx
-    * @Description: 投放
+    * @Description: 样例
     * @Date: 18:06 2019/5/28
     **/
-    private void doExampleRegularly() {
+    private void doExample() {
         //扫描规则提醒
         System.out.println("样例成功");
     }

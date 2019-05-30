@@ -1,11 +1,12 @@
 package com.hover.management;
 
+import com.hover.common.util.listeners.ApplicationHolderListener;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.Banner;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -19,17 +20,23 @@ import org.springframework.context.annotation.ComponentScan;
 //@ImportResource({"classpath:/dubbo/*.xml"})
 public class MyApplication extends SpringBootServletInitializer {
 
-    public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(MyApplication.class);
-        application.setBannerMode(Banner.Mode.OFF);
-        application.run(args);
+    @Bean
+    ApplicationHolderListener applicationHolderListener() {
+        return new ApplicationHolderListener();
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        // 注意这里要指向原先用main方法执行的Application启动类
-        return builder.sources(MyApplication.class);
+    public static void main(String[] args) {
+//        SpringApplication application = new SpringApplication(MyApplication.class);
+//        application.setBannerMode(Banner.Mode.OFF);
+//        application.run(args);
+        new SpringApplicationBuilder(MyApplication.class).web(WebApplicationType.NONE).run(args);
     }
+
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+//        // 注意这里要指向原先用main方法执行的Application启动类
+//        return builder.sources(MyApplication.class);
+//    }
 
 //    @Bean
 //    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {

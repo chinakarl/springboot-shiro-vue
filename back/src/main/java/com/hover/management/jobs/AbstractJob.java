@@ -5,6 +5,7 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @Author: zhaihx
@@ -19,6 +20,7 @@ public abstract class AbstractJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException
     {
+        ConfigurableApplicationContext cac = (ConfigurableApplicationContext) context.getJobDetail().getJobDataMap().get("ConfigurableApplicationContext");
         boolean pro = proDO();
         logger.debug(getClass().getSimpleName() + ":前置任务完成...result:" + pro);
         if(pro) {
