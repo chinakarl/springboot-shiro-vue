@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
+import org.springframework.kafka.transaction.KafkaTransactionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +42,18 @@ public class KafkaConfiguration {
     //根据senderProps填写的参数创建生产者工厂
     @Bean
     public ProducerFactory<String, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(senderProps());
+        DefaultKafkaProducerFactory factory = new DefaultKafkaProducerFactory<>(senderProps());
+        factory.transactionCapable();
+        // 事务前缀
+        factory.setTransactionIdPrefix("tran-");
+        return factory;
+    }
+
+    //kafka事务管理器
+    @Bean
+    public KafkaTransactionManager transactionManager(ProducerFactory producerFactory) {
+        KafkaTransactionManager manager = new KafkaTransactionManager(producerFactory);
+        return manager;
     }
 
     //kafkaTemplate实现了Kafka发送接收等功能
