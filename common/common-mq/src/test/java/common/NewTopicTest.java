@@ -34,7 +34,7 @@ public class NewTopicTest {
     **/
     @Test
     public void testCreateTopic() throws InterruptedException {
-        NewTopic topic = new NewTopic("topic.quick.initial2", 1, (short) 1);
+        NewTopic topic = new NewTopic("topic.quick.initial23", 1, (short) 1);
         adminClient.createTopics(Arrays.asList(topic));
         Thread.sleep(1000);
     }
